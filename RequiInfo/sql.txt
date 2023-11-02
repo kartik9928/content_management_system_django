@@ -1,6 +1,0 @@
-SELECT t1.first_name, t1.id, sum(1) as totalBlog
-FROM app1_postdata AS t2, app1_customuser AS t1
-WHERE t1.id = t2.author_id_id AND t1.first_name = 'kartik'
-GROUP BY t1.id
-
--- to display author total number of blogs
