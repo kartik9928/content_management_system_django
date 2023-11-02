@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-jt8ipulw*q!qq-74#fn(_tg)3l9#1mrm=h*tfgn)bu%j-ypzt0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -90,14 +91,22 @@ WSGI_APPLICATION = 'Content_MS.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'ContentMS_DB',
+#         'USER': 'postgres',
+#         'PASSWORD': '123456',
+#         'HOST': 'localhost',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ContentMS_DB',
-        'USER': 'postgres',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
-    }
+    # 'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.config(
+        default='postgres://testingrender_user:aMz6CmzoXvVwagZ5RobcMrm06a2B7Cwn@dpg-ckp6gi7kc2qc73dev3k0-a.oregon-postgres.render.com/testingrender',
+        conn_max_age=600
+    )
 }
 
 AUTH_USER_MODEL = 'app1.CustomUser'
