@@ -1,0 +1,13 @@
+data  = PostData.objects.filter(tags__icontains="new blog")
+to search the tags on my PostData 
+
+# c0da56b30eace96a40f682314b5cb6ea8d13fbfc kartik
+
+post commants
+data2 = ct(post_id = data, author_id_sub = data1, content="this is my first comment", DataTime= "2023-9-10", seen=True ).save() 
+
+search with auther name is wrong
+when searched auther display all the blogs of the auther
+
+join query in dhango orm
+data = PostData.objects.select_related('author_id').all()

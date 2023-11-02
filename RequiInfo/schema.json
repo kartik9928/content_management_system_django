@@ -1,0 +1,46 @@
+{
+    "users": [
+      {
+        "user_id": "unique_user_id",
+        "username": "user_username",
+        "email": "user_email",
+        "password": "hashed_password",
+        "role": "user_role",  // User roles (e.g., "admin," "editor," "author," "subscriber")
+        "created_at": "timestamp",
+        "updated_at": "timestamp"
+      }
+    ],
+    "categories": [
+      {
+        "category_id": "unique_category_id",
+        "name": "category_name",
+        "description": "category_description",
+        "created_at": "timestamp",
+        "updated_at": "timestamp"
+      }
+    ],
+    "posts": [
+      {
+        "post_id": "unique_post_id",
+        "title": "post_title",
+        "content": "post_content",
+        "author_id": "user_id",  // References the author of the post
+        "category_id": "category_id",  // References the post category
+        "tags": ["tag1", "tag2", "tag3"],  // An array of tags
+        "published": true,  // Boolean indicating if the post is published or in draft
+        "created_at": "timestamp",
+        "updated_at": "timestamp"
+      }
+    ],
+    "comments": [
+      {
+        "comment_id": "unique_comment_id",
+        "post_id": "post_id",  // References the post to which the comment belongs
+        "author_id": "user_id",  // References the user who made the comment
+        "content": "comment_content",
+        "created_at": "timestamp",
+        "updated_at": "timestamp"
+      }
+    ]
+  }
+  
